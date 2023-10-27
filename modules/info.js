@@ -8,7 +8,7 @@ export default async function info(number) {
   
   return Toastify({
     text: result.data[0],
-    duration: 3000,
+    duration: 7000,
     newWindow: true,
     close: true,
     gravity: "top",
