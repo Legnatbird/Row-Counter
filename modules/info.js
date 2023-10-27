@@ -4,7 +4,11 @@ export default async function info(number) {
 
   let url = `http://numbersapi.com/${number}?json`
   let response = await fetch(url, {
-    mode: 'no-cors'
+    mode: "no-cors",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      "Upgrade-Insecure-Requests": "1"
+    }
   });
   let result = await response.json();
   
