@@ -2,7 +2,7 @@ import Toastify from 'toastify-js'
 
 export default async function info(number) {
 
-  let url = `http://numbersapi.com/${number}?json`
+  let url = "https://meowfacts.herokuapp.com"
   let response = await fetch(url, {
     mode: "no-cors",
     headers: {
@@ -13,7 +13,7 @@ export default async function info(number) {
   let result = await response.json();
   
   return Toastify({
-    text: result.text,
+    text: result.data[0],
     duration: 3000,
     newWindow: true,
     close: true,
