@@ -26,7 +26,7 @@ export default function counter() {
   }
   
   reset.addEventListener("click", () => {
-    if (counterRight == 0 && counterLeft == 0) {
+    if (counterRight === 0 && counterLeft === 0) {
       return;
     }
     counterRight = 0;
@@ -36,11 +36,11 @@ export default function counter() {
   
   minus.addEventListener("click", () => {
 
-    if (counterRight == 0 && counterLeft == 0) {
+    if (counterRight === 0 && counterLeft === 0) {
       return;
     }
   
-    if (counterRight == 0 && counterLeft == 0) {
+    if (counterRight === 0 && counterLeft === 0) {
       counterRight = 0;
       counterLeft = 0;
     } else if (counterLeft > 9 && counterRight > 0) {
@@ -49,7 +49,7 @@ export default function counter() {
     else if (counterRight > 0 && counterLeft <= 9) {
       counterRight--;
     } else if (counterRight <= 9 && counterLeft > 0) {
-      if (counterRight == 0) {
+      if (counterRight === 0) {
         counterRight = 9;
       }
       counterLeft--;
@@ -67,7 +67,7 @@ export default function counter() {
     if (counterLeft >= 0 && counterRight < 9) {
       counterRight++;
     } else if (counterRight >= 0 && counterLeft < 9) {
-      if (counterRight == 9) {
+      if (counterRight === 9) {
         counterRight = 0;
       }
       counterLeft++;
