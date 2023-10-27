@@ -3,13 +3,7 @@ import Toastify from 'toastify-js'
 export default async function info(number) {
 
   let url = "https://meowfacts.herokuapp.com"
-  let response = await fetch(url, {
-    mode: "no-cors",
-    headers: {
-      "X-Requested-With": "XMLHttpRequest",
-      "Upgrade-Insecure-Requests": "1"
-    }
-  });
+  let response = await fetch(url)
   let result = await response.json();
   
   return Toastify({
