@@ -1,85 +1,66 @@
-import convert from "./convert";
 import info from "./info";
 
 let showed = {}
 
 export default function counter() {
-  let value = document.getElementById("value");
-  let value2 = document.getElementById("value2");
-  let reset = document.getElementById("reset");
-  let minus = document.getElementById("minus");
-  let plus = document.getElementById("plus");
-  
-  let counterRight = 0;
-  let counterLeft = 0;
-  
+  let rowCounterSelector = document.getElementById("value-1");
+  let stitchCounterSelector = document.getElementById("value-2");
+  let reset1 = document.getElementById("reset-1");
+  let minus1 = document.getElementById("minus-1");
+  let plus1 = document.getElementById("plus-1");
+  let reset2 = document.getElementById("reset-2");
+  let minus2 = document.getElementById("minus-2");
+  let plus2 = document.getElementById("plus-2");
+
+  var rowCounter = 0;
+  var stitchCounter = 0;
+
   function updateScreen() {
-    let number = convert(counterLeft, counterRight);
+
+    let number = Math.floor(Math.random() * 2) + 1;
+    number = number === 2 ? rowCounter : stitchCounter;
 
     if (!showed[number]) {
       info(number);
     }
 
-    showed[number] = true;
-    value.textContent = counterRight;
-    value2.textContent = counterLeft;
-  }
-  
-  reset.addEventListener("click", () => {
-    if (counterRight === 0 && counterLeft === 0) {
-      return;
-    }
-    counterRight = 0;
-    counterLeft = 0;
-    updateScreen();
-  });
-  
-  minus.addEventListener("click", () => {
+    rowCounter = String(rowCounter).length == 1 ? "0" + rowCounter : rowCounter;
+    stitchCounter = String(stitchCounter).length == 1 ? "0" + stitchCounter : stitchCounter;
 
-    if (counterRight === 0 && counterLeft === 0) {
-      return;
-    }
-  
-    if (counterRight === 0 && counterLeft === 0) {
-      counterRight = 0;
-      counterLeft = 0;
-    } else if (counterLeft > 9 && counterRight > 0) {
-      counterRight--;
-    }
-    else if (counterRight > 0 && counterLeft <= 9) {
-      counterRight--;
-    } else if (counterRight <= 9 && counterLeft > 0) {
-      if (counterRight === 0) {
-        counterRight = 9;
-      }
-      counterLeft--;
-    } else if (counterRight > 0 && counterLeft > 0) {
-      counterRight--;
-    } else if (counterRight <= 0 && counterLeft <= 0) {
-      counterLeft--;
-    }
-  
+    rowCounterSelector.textContent = rowCounter;
+    stitchCounterSelector.textContent = stitchCounter;
+
+    showed[number] = true;
+  }
+
+  reset1.addEventListener("click", () => {
+    rowCounter = 0;
     updateScreen();
   });
-  
-  plus.addEventListener("click", () => {
-  
-    if (counterLeft >= 0 && counterRight < 9) {
-      counterRight++;
-    } else if (counterRight >= 0 && counterLeft < 9) {
-      if (counterRight === 9) {
-        counterRight = 0;
-      }
-      counterLeft++;
-    } else if (counterRight < 9 && counterLeft < 9) {
-      counterRight++;
-    } else if (counterRight >= 9 && counterLeft >= 9) {
-      counterLeft++;
-      if (counterLeft > 9) {
-        counterRight = 0;
-      }
-    }
-  
+
+  reset2.addEventListener("click", () => {
+    stitchCounter = 0;
     updateScreen();
   });
+
+  plus1.addEventListener("click", () => {
+    rowCounter++;
+    updateScreen();
+  });
+
+  plus2.addEventListener("click", () => {
+    stitchCounter++;
+    updateScreen();
+  });
+
+  minus1.addEventListener("click", () => {
+    rowCounter--;
+    updateScreen();
+  });
+
+  minus2.addEventListener("click", () => {
+    stitchCounter--;
+    updateScreen();
+  });
+
 }

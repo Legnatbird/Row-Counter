@@ -4,27 +4,66 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/bun.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
     <title>ROW COUNTER</title>
   </head>
   <body>
-    <div id="app">
-      <div class="title">ROW COUNTER</div>
-      <div class="screen" id="screen">
-        <div class="label">Rows</div>
-        <div class="value" id="numbers">
-          <div class="value" id="value2">0</div>
-          <div class="value" id="value">0</div>
+    <div class="flex justify-center items-center bg-[#ffe4e1] h-screen">
+      <div class="mr-8 text-center">
+        <div class="text-5xl text-[#ebb461] mb-4">Row</div>
+        <div class="rounded-full border-4 border-[#e0a143] p-8 mb-4">
+          <div id="value-1" class="text-6xl text-[brown]">00</div>
+        </div>
+        <div class="flex justify-between max-w-xs mx-auto">
+          <button
+            id="minus-1"
+            class="bg-[#ff6961] text-[#f7e5e5] text-xl py-2 px-4 rounded-full"
+          >
+            -
+          </button>
+          <button
+            id="plus-1"
+            class="bg-[#ff6961] text-[#f7e5e5] text-xl py-2 px-4 rounded-full"
+          >
+            +
+          </button>
+          <button
+            id="reset-1"
+            class="bg-[#ff6961] text-[#f7e5e5] text-xl py-2 px-4 rounded-full"
+          >
+            R
+          </button>
         </div>
       </div>
-      <div class="buttons">
-        <button class="button" id="reset">Reset</button>
-        <button class="button" id="minus">Subtract</button>
-        <button class="button" id="plus">Add</button>
+      <div class="ml-8 text-center">
+        <div class="text-5xl text-[#ebb461] mb-4">Stitch</div>
+        <div class="rounded-full border-4 border-[#e0a143] p-8 mb-4">
+          <div id="value-2" class="text-6xl text-[brown]">00</div>
+        </div>
+        <div class="flex justify-between max-w-xs mx-auto">
+          <button
+            id="minus-2"
+            class="bg-[#ff6961] text-[#f7e5e5] text-xl py-2 px-4 rounded-full"
+          >
+            -
+          </button>
+          <button
+            id="plus-2"
+            class="bg-[#ff6961] text-[#f7e5e5] text-xl py-2 px-4 rounded-full"
+          >
+            +
+          </button>
+          <button
+            id="reset-2"
+            class="bg-[#ff6961] text-[#f7e5e5] text-xl py-2 px-4 rounded-full"
+          >
+            R
+          </button>
+        </div>
       </div>
     </div>
-    <img src="images/kimetsu.gif" id="zenitsu" alt="Zenitsu"></img>
-    <img src="images/gojo.gif" id="gojo" alt="Gojo"></img>
+    <img src="images/kimetsu.gif" id="zenitsu" alt="Zenitsu" />
+    <img src="images/gojo.gif" id="gojo" alt="Gojo" />
     <script type="module" src="/main.js"></script>
   </body>
 </html>

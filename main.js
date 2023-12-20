@@ -1,4 +1,4 @@
-import counter from "./modules/counter"
+import counter from "./modules/counter.js"
 import JSConfetti from 'js-confetti'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
